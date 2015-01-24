@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+  <display-name></display-name>
+  <servlet>
+    <servlet-name>CheckImgServlet</servlet-name>
+    <servlet-class>cn.LBS.view.CheckImgServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>RegistServlet</servlet-name>
+    <servlet-class>cn.LBS.controller.RegistServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>cn.LBS.controller.LoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ModifyPassWord</servlet-name>
+    <servlet-class>cn.LBS.controller.ModifyPassWord</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ModifyParkInfo</servlet-name>
+    <servlet-class>cn.LBS.controller.ModifyParkInfo</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ModifyParkNum</servlet-name>
+    <servlet-class>cn.LBS.controller.ModifyParkNum</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ModifyParkInfoS</servlet-name>
+    <servlet-class>cn.LBS.controller.ModifyParkInfoS</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ModifyParkNumS</servlet-name>
+    <servlet-class>cn.LBS.controller.ModifyParkNumS</servlet-class>
+  </servlet>
+  <!-- 列表信息 -->
+  <servlet>
+    <servlet-name>orderList</servlet-name>
+    <servlet-class>cn.LBS.controller.OrderListServlet</servlet-class>
+  </servlet>
+
+
+
+
+  
+  <servlet-mapping>
+    <servlet-name>CheckImgServlet</servlet-name>
+    <url-pattern>/CheckImg</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RegistServlet</servlet-name>
+    <url-pattern>/Regist</url-pattern>
+  </servlet-mapping>	
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ModifyPassWord</servlet-name>
+    <url-pattern>/Modify</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ModifyParkInfo</servlet-name>
+    <url-pattern>/ModifyParkInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ModifyParkNum</servlet-name>
+    <url-pattern>/ModifyParkNum</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ModifyParkInfoS</servlet-name>
+    <url-pattern>/ModifyParkInfoS</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ModifyParkNumS</servlet-name>
+    <url-pattern>/ModifyParkNumS</url-pattern>
+  </servlet-mapping>
+  <!-- 列表信息 -->
+  	<servlet-mapping>
+    <servlet-name>orderList</servlet-name>
+    <url-pattern>/orderListServlet</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

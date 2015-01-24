@@ -1,0 +1,121 @@
+drop table if exists admin ;
+create table admin(
+	admin_name	varchar(50)	primary key ,
+	admin_password	varchar(30)	not null
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+insert into admin values("admin","admin123");
+insert into admin values("admin1","admin1");
+insert into admin values("admin2","admin2");
+insert into admin values("admin3","admin3");
+insert into admin values("admin4","admin4");
+insert into admin values("admin5","admin5");
+insert into admin values("admin6","admin6");
+
+
+drop table if exists driver ;
+create table driver(
+	driver_id	varchar(50) 		primary key ,
+	driver_password	varchar(30)	not null
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+insert into driver values("SUAT0000","123456");
+insert into driver values("SUAT0001","123456");
+insert into driver values("SUAT0002","123456");
+insert into driver values("SUAT0003","123456");
+insert into driver values("SUAT0004","123456");
+insert into driver values("SUAT0005","123456");
+insert into driver values("SUAT0006","123456");
+insert into driver values("SUAT0007","123456");
+insert into driver values("SUAT0008","123456");
+insert into Driver values("SUAT0009","123456");
+
+
+
+drop table if exists parkinfo;
+create table parkinfo(
+	admin_name	varchar(50) primary key ,
+	park_name	varchar(50),
+	park_latitude int,
+	park_longitude int,
+	park_num int,
+	park_pay varchar(100),
+	park_priceOne int,
+	park_priceTwo int,
+	park_priceThree int,
+	park_priceFour int
+	/*CONSTRAINT `FK1` FOREIGN KEY (`admin_name`) REFERENCES `admin` (`admin_name`) ON DELETE CASCADE ON UPDATE CASCADE*/
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+insert into parkinfo values("admin","HongHongPark",30,40,100,"Five yuan an hour",5,10,15,20);
+insert into parkinfo values("admin1","HongHongPark",30,40,20,"Five yuan an hour",5,10,15,20);
+insert into parkinfo values("admin2","HongHongPark",30,40,10,"Five yuan an hour",5,10,15,20);
+insert into parkinfo values("admin3","HongHongPark3",30,40,120,"Five yuan an hour",5,10,15,20);
+insert into parkinfo values("admin4","HongHongPark4",30,40,50,"Five yuan an hour",5,10,15,20);
+insert into parkinfo values("admin5","HongHongPark5",30,40,70,"Five yuan an hour",5,10,15,20);
+insert into parkinfo values("admin6","HongHongPark6",30,40,200,"Five yuan an hour",5,10,15,20);
+insert into parkinfo values("admin7","HongHongPark7",30,40,80,"Five yuan an hour",5,10,15,20);
+insert into parkinfo values("admin8","HongHongPark8",30,40,20,"Five yuan an hour",5,10,15,20);
+insert into parkinfo values("admin9","HongHongPark9",30,40,30,"Five yuan an hour",5,10,15,20);
+
+
+
+
+drop table if exists parkactual;
+create table parkactual(
+	admin_name	varchar(50)	primary key,
+	park_num	int,
+	park_public 	int,
+	park_order	int		not null,
+	park_remain 	int
+	/*CONSTRAINT `FK2` FOREIGN KEY (`admin_name`) REFERENCES `admin` (`admin_name`) ON DELETE CASCADE ON UPDATE CASCADE,*/
+	/*CONSTRAINT `FK3` FOREIGN KEY (`park_num`) REFERENCES `parkinfo` (`park_num`) ON DELETE CASCADE ON UPDATE CASCADE*/
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+insert into parkactual values("admin",100,20,10,10);
+insert into parkactual values("admin1",20,20,10,10);
+insert into parkactual values("admin2",10,20,10,10);
+insert into parkactual values("admin3",120,20,10,10);
+insert into parkactual values("admin4",50,20,10,10);
+insert into parkactual values("admin5",70,20,10,10);
+insert into parkactual values("admin6",200,20,10,10);
+insert into parkactual values("admin7",80,20,10,10);
+
+drop table if exists drivermember;
+create table drivermember(
+	driver_id	varchar(50) ,
+	driver_attachid	varchar(50)
+	/*CONSTRAINT `FK4` FOREIGN KEY (`driver_id`) REFERENCES `driver` (`driver_id`) ON DELETE CASCADE ON UPDATE CASCADE*/
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+	
+
+insert into drivermember values("SUAT0000","SUAT0001");
+insert into drivermember values("SUAT0000","SUAT0002");
+insert into drivermember values("SUAT0000","SUAT0003");
+insert into drivermember values("SUAT0004","SUAT0005");
+insert into drivermember values("SUAT0004","SUAT0006");
+insert into drivermember values("SUAT0004","SUAT0007");
+insert into drivermember values("SUAT0004","SUAT0005");
+insert into drivermember values("SUAT0008","SUAT0009");
+
+CREATE TABLE `order` (
+`order_id`  int  PRIMARY KEY,
+`driver_id`  varchar(50) NOT NULL ,
+`admin_name`  varchar(50) NOT NULL ,
+`order_date`  date ,
+`order_price`  int  ,
+`order_status`  char default 'N' check(order_status in ('Y','N')) 
+/*CONSTRAINT `FK5` FOREIGN KEY (`driver_id`) REFERENCES `driver` (`driver_id`) ON DELETE CASCADE ON UPDATE CASCADE,*/
+/*CONSTRAINT `FK6` FOREIGN KEY (`admin_name`) REFERENCES `driver` (`admin_name`) ON DELETE CASCADE ON UPDATE CASCADE*/
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+insert into order values(1,"SUAT0000","admin",'2014-12-12',5,'N');
+insert into order values(2,"SUAT0001","admin1",2014-12-11,10,'N');
+insert into order values(3,"SUAT0002","admin2",2014-12-1,5,'N');
+insert into order values(4,"SUAT0003","admin3",2014-12-2,10,'N');
+insert into order values(5,"SUAT0004","admin4",2014-12-3,5,'N');
+insert into order values(6,"SUAT0005","admin5",2014-12-4,15,'N');
+insert into order values(7,"SUAT0006","admin6",2014-12-5,10,'N');
